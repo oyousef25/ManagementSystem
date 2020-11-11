@@ -1,6 +1,9 @@
 package Tabs;
 
 import javafx.scene.control.Tab;
+import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
+import javafx.scene.text.Text;
 
 /**
  * AddReservationTab class - represents Add Reservation Tab

@@ -3,7 +3,6 @@ import Tabs.DeleteReservationTab;
 import Tabs.StatsTab;
 import Tabs.UpdateReservationTab;
 import javafx.application.Application;
-import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.TabPane;
 import javafx.scene.image.ImageView;
@@ -13,6 +12,9 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import panes.AddPane;
+import panes.DeletePane;
+import panes.UpdatePane;
 
 public class Main extends Application {
 
@@ -29,7 +31,7 @@ public class Main extends Application {
         creditsTitle.setFont(Font.font("Comic Sans MS", 15));
 
         //Create the imageView that has the Logo_image.jpg(Header Image)
-        ImageView headerImage = new ImageView("logo-image.png");
+        ImageView headerImage = new ImageView("images/logo-image.png");
         headerImage.setFitWidth(1024);
         headerImage.setFitHeight(400);
 
@@ -43,12 +45,18 @@ public class Main extends Application {
 
         //Create Tabs
         AddReservationTab addReservationTab = AddReservationTab.getInstance();
+        addReservationTab.setContent(new AddPane());
+
         DeleteReservationTab deleteReservationTab = DeleteReservationTab.getInstance();
+        deleteReservationTab.setContent(new DeletePane());
+
         UpdateReservationTab updateReservationTab = UpdateReservationTab.getInstance();
+        updateReservationTab.setContent(new UpdatePane());
+
         StatsTab statsTab = StatsTab.getInstance();
 
         //Add Tabs to the tabPane
-        tabPane.getTabs().addAll(addReservationTab, deleteReservationTab, updateReservationTab, statsTab);
+        tabPane.getTabs().addAll(addReservationTab,updateReservationTab, deleteReservationTab, statsTab);
 
         //Create a borderPane
         BorderPane root = new BorderPane();
