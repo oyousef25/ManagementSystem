@@ -20,6 +20,7 @@ public class DeletePane extends BorderPane {
         The Form Will include:
         1. Form title
         2. Reservation ID
+        3. The Delete Button
      */
 
         //Form Title
@@ -33,7 +34,6 @@ public class DeletePane extends BorderPane {
         //Reservation ID and TextField
         Label idLabel = new Label("Reservation ID:");
         TextField idText = new TextField();
-        idText.setPadding(new Insets(0, 0, 10, 0));
         idText.setMaxWidth(150);
         //Add elements to vbox
         formVbox.getChildren().addAll(idLabel, idText);

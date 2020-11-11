@@ -36,35 +36,30 @@ public class AddPane extends BorderPane {
 
         Label nameLabel = new Label("Name Of Person");
         TextField nameText = new TextField();
-        nameText.setPadding(new Insets(0, 0, 10, 0));
         nameText.setMaxWidth(150);
         //Add elements to vbox
         formVbox.getChildren().addAll(nameLabel, nameText);
 
         Label dateLabel = new Label("Date:");
         TextField dateText = new TextField();
-        dateText.setPadding(new Insets(0, 0, 10, 0));
         dateText.setMaxWidth(150);
         //Add elements to vbox
         formVbox.getChildren().addAll(dateLabel, dateText);
 
         Label tableLabel = new Label("Table #:");
         TextField tableText = new TextField();
-        tableText.setPadding(new Insets(0, 0, 10, 0));
         tableText.setMaxWidth(150);
         //Add elements to vbox
         formVbox.getChildren().addAll(tableLabel, tableText);
 
         Label numOfPeopleLabel = new Label("Number Of People");
         TextField numOfPeopleText = new TextField();
-        numOfPeopleText.setPadding(new Insets(0, 0, 10, 0));
         numOfPeopleText.setMaxWidth(150);
         //Add elements to vbox
         formVbox.getChildren().addAll(numOfPeopleLabel, numOfPeopleText);
 
         Label phoneNumLabel = new Label("Phone Number:");
         TextField phoneNumText = new TextField();
-        phoneNumText.setPadding(new Insets(0, 0, 10, 0));
         phoneNumText.setMaxWidth(150);
         //Add elements to vbox
         formVbox.getChildren().addAll(phoneNumLabel, phoneNumText);

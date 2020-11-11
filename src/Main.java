@@ -14,6 +14,7 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import panes.AddPane;
 import panes.DeletePane;
+import panes.UpdatePane;
 
 public class Main extends Application {
 
@@ -50,7 +51,7 @@ public class Main extends Application {
         deleteReservationTab.setContent(new DeletePane());
 
         UpdateReservationTab updateReservationTab = UpdateReservationTab.getInstance();
-//        updateReservationTab.setContent();
+        updateReservationTab.setContent(new UpdatePane());
 
         StatsTab statsTab = StatsTab.getInstance();
 
