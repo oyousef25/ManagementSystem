@@ -13,6 +13,7 @@ import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import panes.AddPane;
+import panes.DeletePane;
 
 public class Main extends Application {
 
@@ -46,7 +47,7 @@ public class Main extends Application {
         addReservationTab.setContent(new AddPane());
 
         DeleteReservationTab deleteReservationTab = DeleteReservationTab.getInstance();
-//        deleteReservationTab.setContent();
+        deleteReservationTab.setContent(new DeletePane());
 
         UpdateReservationTab updateReservationTab = UpdateReservationTab.getInstance();
 //        updateReservationTab.setContent();
