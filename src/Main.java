@@ -56,7 +56,7 @@ public class Main extends Application {
         StatsTab statsTab = StatsTab.getInstance();
 
         //Add Tabs to the tabPane
-        tabPane.getTabs().addAll(addReservationTab, deleteReservationTab, updateReservationTab, statsTab);
+        tabPane.getTabs().addAll(addReservationTab,updateReservationTab, deleteReservationTab, statsTab);
 
         //Create a borderPane
         BorderPane root = new BorderPane();
