@@ -48,13 +48,17 @@ public class DBConst {
     /*
         CREATING TABLES
      */
-    
+
+
     /**
-     * CREATE THE RESERVATIONS TABLE
+     * CREATE THE TABLE NUMBER TABLE
      */
-    public static final String CREATE_TABLE_RESERVATIONS =
-            ""
-            ;
+    public static final String CREATE_TABLE_NUMBER =
+            "CREATE TABLE " + TABLE_NUMBER_TABLE + "(" +
+                    TABLE_NUMBER_COLUMN_ID + "int NOT NULL AUTO_INCREMENT, " +
+                    TABLE_NUMBER_COLUMN_NUMBER + "int, " +
+                    "PRIMARY KEY(" + TABLE_NUMBER_COLUMN_ID + ")" +
+            ")";
 
     /**
      * CREATE THE NUMBER OF PEOPLE TABLE
@@ -64,10 +68,10 @@ public class DBConst {
             ;
 
     /**
-     * CREATE THE TABLE NUMBER TABLE
+     * CREATE THE RESERVATIONS TABLE
      */
-    public static final String CREATE_TABLE_NUMBER =
-            ""
+    public static final String CREATE_TABLE_RESERVATIONS =
+            "CREATE TABLE"
             ;
 
 
