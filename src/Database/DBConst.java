@@ -34,7 +34,7 @@ public class DBConst {
      */
     public static final String TABLE_GUESTS = "number_of_guests";
     public static final String GUESTS_COLUMN_ID = "id";
-    public static final String GUESTS_COLUMN_NAME = "name";
+    public static final String GUESTS_COLUMN_NUMBER = "num_of_guests";
 
     /**
      * Table Number Table will have 2 columns:
@@ -45,10 +45,11 @@ public class DBConst {
     public static final String TABLE_NUMBER_COLUMN_ID = "id";
     public static final String TABLE_NUMBER_COLUMN_NUMBER = "number";
 
+
+
     /*
         CREATING TABLES
      */
-
 
     /**
      * CREATE THE TABLE NUMBER TABLE
@@ -64,15 +65,9 @@ public class DBConst {
      * CREATE THE NUMBER OF PEOPLE TABLE
      */
     public static final String CREATE_TABLE_GUESTS =
-            ""
-            ;
-
-    /**
-     * CREATE THE RESERVATIONS TABLE
-     */
-    public static final String CREATE_TABLE_RESERVATIONS =
-            "CREATE TABLE"
-            ;
-
-
+            "CREATE TABLE " + TABLE_GUESTS + "(" +
+                    GUESTS_COLUMN_ID + "int NOT NULL AUTO_INCREMENT, " +
+                    GUESTS_COLUMN_NUMBER + "int, " +
+                    "PRIMARY KEY(" + GUESTS_COLUMN_ID + ")" +
+            ")";
 }
