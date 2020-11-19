@@ -19,7 +19,7 @@ public class Database {
                 e.printStackTrace();
             }
             try {
-
+                createTable(DBConst.TABLE_NUMBER_TABLE, DBConst.CREATE_TABLE_NUMBER, connection);
             }catch(Exception e){
                 e.printStackTrace();
             }
