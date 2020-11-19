@@ -20,6 +20,7 @@ public class Database {
             }
             try {
                 createTable(DBConst.TABLE_NUMBER_TABLE, DBConst.CREATE_TABLE_NUMBER, connection);
+                createTable(DBConst.TABLE_GUESTS, DBConst.CREATE_TABLE_GUESTS, connection);
             }catch(Exception e){
                 e.printStackTrace();
             }
