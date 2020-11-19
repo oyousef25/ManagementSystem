@@ -56,8 +56,8 @@ public class DBConst {
      */
     public static final String CREATE_TABLE_NUMBER =
             "CREATE TABLE " + TABLE_NUMBER_TABLE + "(" +
-                    TABLE_NUMBER_COLUMN_ID + "int NOT NULL AUTO_INCREMENT, " +
-                    TABLE_NUMBER_COLUMN_NUMBER + "int, " +
+                    TABLE_NUMBER_COLUMN_ID + " int NOT NULL AUTO_INCREMENT, " +
+                    TABLE_NUMBER_COLUMN_NUMBER + " int, " +
                     "PRIMARY KEY(" + TABLE_NUMBER_COLUMN_ID + ")" +
             ")";
 
@@ -66,8 +66,8 @@ public class DBConst {
      */
     public static final String CREATE_TABLE_GUESTS =
             "CREATE TABLE " + TABLE_GUESTS + "(" +
-                    GUESTS_COLUMN_ID + "int NOT NULL AUTO_INCREMENT, " +
-                    GUESTS_COLUMN_NUMBER + "int, " +
+                    GUESTS_COLUMN_ID + " int NOT NULL AUTO_INCREMENT, " +
+                    GUESTS_COLUMN_NUMBER + " int, " +
                     "PRIMARY KEY(" + GUESTS_COLUMN_ID + ")" +
             ")";
 
@@ -76,12 +76,12 @@ public class DBConst {
      */
     public static final String CREATE_TABLE_RESERVATIONS =
             "CREATE TABLE " + TABLE_RESERVATIONS + "(" +
-                    RESERVATIONS_COLUMN_ID + "int NOT NULL AUTO_INCREMENT PRIMARY KEY, " +
-                    RESERVATIONS_COLUMN_NAME + "varchar(20) NOT NULL, " +
-                    RESERVATIONS_COLUMN_DATE + "int(4) NOT NULL" +
-                    RESERVATIONS_COLUMN_TABLE + "int NOT NULL" +
-                    RESERVATIONS_COLUMN_GUESTS + "int NOT NULL" +
-                    RESERVATIONS_COLUMN_PHONE + "int NOT NULL" +
+                    RESERVATIONS_COLUMN_ID + " int NOT NULL AUTO_INCREMENT PRIMARY KEY, " +
+                    RESERVATIONS_COLUMN_NAME + " varchar(20) NOT NULL, " +
+                    RESERVATIONS_COLUMN_DATE + " int(4) NOT NULL, " +
+                    RESERVATIONS_COLUMN_TABLE + " int NOT NULL, " +
+                    RESERVATIONS_COLUMN_GUESTS + " int NOT NULL, " +
+                    RESERVATIONS_COLUMN_PHONE + " int NOT NULL, " +
                     "FOREIGN KEY (" + RESERVATIONS_COLUMN_TABLE + ")" +
                             " REFERENCES " + TABLE_NUMBER_TABLE + "(" + TABLE_NUMBER_COLUMN_ID + "),"+
                     "FOREIGN KEY (" + RESERVATIONS_COLUMN_GUESTS + ")" +
