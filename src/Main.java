@@ -1,3 +1,4 @@
+import Database.Database;
 import Tabs.AddReservationTab;
 import Tabs.DeleteReservationTab;
 import Tabs.StatsTab;
@@ -64,6 +65,9 @@ public class Main extends Application {
         //Add tabPane and Header VBox to the borderPane
         root.setCenter(tabPane);
         root.setTop(headerBox);
+
+        //
+        Database db = Database.getInstance();
 
         //Scene and stage setup
         Scene scene = new Scene(root, 1024, 768);
