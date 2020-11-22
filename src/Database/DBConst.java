@@ -78,10 +78,6 @@ public class DBConst {
             "CREATE TABLE " + TABLE_RESERVATIONS + "(" +
                     RESERVATIONS_COLUMN_ID + " int NOT NULL AUTO_INCREMENT PRIMARY KEY, " +
                     RESERVATIONS_COLUMN_NAME + " varchar(20) NOT NULL, " +
-                    RESERVATIONS_COLUMN_DATE + " int(4) NOT NULL" +
-                    RESERVATIONS_COLUMN_TABLE + " int NOT NULL" +
-                    RESERVATIONS_COLUMN_GUESTS + " int NOT NULL" +
-                    RESERVATIONS_COLUMN_PHONE + " int NOT NULL" +
                     RESERVATIONS_COLUMN_DATE + " int(4) NOT NULL, " +
                     RESERVATIONS_COLUMN_TABLE + " int NOT NULL, " +
                     RESERVATIONS_COLUMN_GUESTS + " int NOT NULL, " +
