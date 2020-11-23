@@ -27,7 +27,7 @@ public class Guests {
 
     /**
      * ID getter
-     * @return
+     * @return id
      */
     public int getId() {
         return id;
@@ -43,7 +43,7 @@ public class Guests {
 
     /**
      * Number of guests getter
-     * @return
+     * @return numOfGuests
      */
     public int getNumOfGuests() {
         return numOfGuests;
