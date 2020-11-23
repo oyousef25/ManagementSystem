@@ -18,7 +18,8 @@ public interface TableNumDAO {
 
     /**
      * A function to return a single Table Number
+     * @param tableId
      * @return
      */
-    public TableNumber getTableNumber();
+    public TableNumber getTableNumber(int tableId);
 }
