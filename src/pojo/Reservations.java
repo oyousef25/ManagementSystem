@@ -15,6 +15,7 @@ public class Reservations {
     private int id;
     private String name;
     private int date;
+    //It's int because we're going to use its id in the table
     private int guests;
     private int tableNum;
     private int phoneNumber;
