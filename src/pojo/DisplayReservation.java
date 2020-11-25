@@ -13,8 +13,8 @@ public class DisplayReservation {
     private int id;
     private String name;
     private String date;
-    private String guests;
     private String tableNum;
+    private String guests;
     private int phoneNumber;
 
     /**
@@ -22,16 +22,16 @@ public class DisplayReservation {
      * @param id
      * @param name
      * @param date
-     * @param guests
      * @param tableNum
+     * @param guests
      * @param phoneNumber
      */
-    public DisplayReservation(int id, String name, String date, String guests, String tableNum, int phoneNumber) {
+    public DisplayReservation(int id, String name, String date, String tableNum, String guests,  int phoneNumber) {
         this.id = id;
         this.name = name;
         this.date = date;
-        this.guests = guests;
         this.tableNum = tableNum;
+        this.guests = guests;
         this.phoneNumber = phoneNumber;
     }
 
@@ -84,22 +84,6 @@ public class DisplayReservation {
     }
 
     /**
-     * Number Of Guests Getter
-     * @return
-     */
-    public String getGuests() {
-        return guests;
-    }
-
-    /**
-     * Number Of Guests Setter
-     * @param guests
-     */
-    public void setGuests(String guests) {
-        this.guests = guests;
-    }
-
-    /**
      * Table Number Getter
      * @return
      */
@@ -113,6 +97,22 @@ public class DisplayReservation {
      */
     public void setTableNum(String tableNum) {
         this.tableNum = tableNum;
+    }
+
+    /**
+     * Number Of Guests Getter
+     * @return
+     */
+    public String getGuests() {
+        return guests;
+    }
+
+    /**
+     * Number Of Guests Setter
+     * @param guests
+     */
+    public void setGuests(String guests) {
+        this.guests = guests;
     }
 
     /**

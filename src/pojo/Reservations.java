@@ -25,16 +25,16 @@ public class Reservations {
      * @param id
      * @param name
      * @param date
-     * @param guests
      * @param tableNum
+     * @param guests
      * @param phoneNumber
      */
-    public Reservations(int id, String name, int date, int guests, int tableNum, int phoneNumber) {
+    public Reservations(int id, String name, int date, int tableNum, int guests, int phoneNumber) {
         this.id = id;
         this.name = name;
         this.date = date;
-        this.guests = guests;
         this.tableNum = tableNum;
+        this.guests = guests;
         this.phoneNumber = phoneNumber;
     }
 
@@ -42,15 +42,15 @@ public class Reservations {
      * Class's Second Constructor (Without the id property)
      * @param name
      * @param date
-     * @param guests
      * @param tableNum
+     * @param guests
      * @param phoneNumber
      */
-    public Reservations(String name, int date, int guests, int tableNum, int phoneNumber) {
+    public Reservations(String name, int date, int tableNum, int guests, int phoneNumber) {
         this.name = name;
         this.date = date;
-        this.guests = guests;
         this.tableNum = tableNum;
+        this.guests = guests;
         this.phoneNumber = phoneNumber;
     }
 
@@ -109,22 +109,6 @@ public class Reservations {
     }
 
     /**
-     * Guests Getter
-     * @return
-     */
-    public int getGuests() {
-        return guests;
-    }
-
-    /**
-     * Guests Setter
-     * @param guests
-     */
-    public void setGuests(int guests) {
-        this.guests = guests;
-    }
-
-    /**
      * Table Number Getter
      * @return
      */
@@ -138,6 +122,22 @@ public class Reservations {
      */
     public void setTableNum(int tableNum) {
         this.tableNum = tableNum;
+    }
+
+    /**
+     * Guests Getter
+     * @return
+     */
+    public int getGuests() {
+        return guests;
+    }
+
+    /**
+     * Guests Setter
+     * @param guests
+     */
+    public void setGuests(int guests) {
+        this.guests = guests;
     }
 
     /**

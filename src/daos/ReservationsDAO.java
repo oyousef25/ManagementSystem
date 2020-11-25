@@ -16,7 +16,7 @@ public interface ReservationsDAO {
      * A functions that return all Reservations
      * @return
      */
-    public ArrayList<Reservations> AllReservations();
+    public ArrayList<Reservations> getAllReservations();
 
     /**
      * A function that returns a single Reservation
