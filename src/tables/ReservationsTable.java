@@ -72,6 +72,21 @@ public class ReservationsTable implements ReservationsDAO {
 
     @Override
     public void createReservation(Reservations reservation) {
+        String query = "INSERT INTO " + DBConst.TABLE_RESERVATIONS +
+                "(" + DBConst.RESERVATIONS_COLUMN_NAME + ", " +
+                DBConst.RESERVATIONS_COLUMN_DATE + "," +
+                DBConst.RESERVATIONS_COLUMN_TABLE + "," +
+                DBConst.RESERVATIONS_COLUMN_GUESTS + "," +
+                DBConst.RESERVATIONS_COLUMN_PHONE  + ") VALUES ('" +
+                reservation.getName() + "','" + reservation.getDate() + "','" +
+                reservation.getTableNum() + "','" + reservation.getGuests() + "','" +
+                reservation.getPhoneNumber() + "')";
 
+        try {
+            db.getConnection().createStatement().execute(query);
+            System.out.println("Inserted Reservation");
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 }
