@@ -25,8 +25,8 @@ public class ReservationsTable implements ReservationsDAO {
                 reservations.add(new Reservations(data.getInt(DBConst.RESERVATIONS_COLUMN_ID),
                         data.getString(DBConst.RESERVATIONS_COLUMN_NAME),
                         data.getInt(DBConst.RESERVATIONS_COLUMN_DATE),
-                        data.getInt(DBConst.RESERVATIONS_COLUMN_GUESTS),
                         data.getInt(DBConst.RESERVATIONS_COLUMN_TABLE),
+                        data.getInt(DBConst.RESERVATIONS_COLUMN_GUESTS),
                         data.getInt(DBConst.RESERVATIONS_COLUMN_PHONE)));
             }
         }catch (SQLException e){
@@ -49,8 +49,8 @@ public class ReservationsTable implements ReservationsDAO {
                     new Reservations(data.getInt(DBConst.RESERVATIONS_COLUMN_ID),
                             data.getString(DBConst.RESERVATIONS_COLUMN_NAME),
                             data.getInt(DBConst.RESERVATIONS_COLUMN_DATE),
-                            data.getInt(DBConst.RESERVATIONS_COLUMN_GUESTS),
                             data.getInt(DBConst.RESERVATIONS_COLUMN_TABLE),
+                            data.getInt(DBConst.RESERVATIONS_COLUMN_GUESTS),
                             data.getInt(DBConst.RESERVATIONS_COLUMN_PHONE)));
         }catch (SQLException e) {
             e.printStackTrace();
@@ -60,7 +60,14 @@ public class ReservationsTable implements ReservationsDAO {
 
     @Override
     public void deleteReservation(int id) {
-
+        String query  = "DELETE FROM " + DBConst.TABLE_RESERVATIONS + " WHERE " +
+                DBConst.RESERVATIONS_COLUMN_ID + " = " + id;
+        try {
+            db.getConnection().createStatement().execute(query);
+            System.out.println("Deleted reservation");
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
