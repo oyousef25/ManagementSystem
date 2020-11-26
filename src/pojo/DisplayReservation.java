@@ -5,6 +5,10 @@ package pojo;
  * 2. The Reservations Table's properties
  * 3. A Class Constructor
  * 4. Getters and Setters to read and change the property's value
+ *
+ * @author Omar Yousef
+ * @version 1.0
+ * @since 20th NOV 2020
  */
 public class DisplayReservation {
     /**

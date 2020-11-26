@@ -11,7 +11,20 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 
+/**
+ * AddPane Class contains:
+ * 1. The AddTab form elements
+ * 2. Add Tab Design
+ *
+ * @author Omar Yousef
+ * @version 1.0
+ * @since NOV 9th 2020
+ */
 public class AddPane extends BorderPane {
+    /**
+     * AddPane() Constructor:
+     * It holds all the form elements
+     */
     public AddPane(){
         //Form VBox
         VBox formVbox = new VBox();

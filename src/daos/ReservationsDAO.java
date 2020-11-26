@@ -10,6 +10,10 @@ import java.util.ArrayList;
  * 2. access a single Reservation
  * 3. Create a new Reservation
  * 4. Delete an existing Reservation
+ *
+ * @author Omar Yousef
+ * @version 1.0
+ * @since 20th NOV 2020
  */
 public interface ReservationsDAO {
     /**
