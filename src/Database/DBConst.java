@@ -3,6 +3,10 @@ package Database;
 /**
  * @DBConst class
  * This class will create all 3 tables:
+ *
+ * @author Omar Yousef
+ * @version 1.0
+ * @since 18th Nov 2020
  */
 
 public class DBConst {

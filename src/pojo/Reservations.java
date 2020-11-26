@@ -6,6 +6,10 @@ package pojo;
  * 2. Reservations Class Constructors(with id, without id and an Empty Constructor)
  * 3. Reservations Class Getters and Setters
  * 4. A toString method to return the guest's name
+ *
+ * @author Omar Yousef
+ * @version 1.0
+ * @since 20th NOV 2020
  */
 public class Reservations {
 

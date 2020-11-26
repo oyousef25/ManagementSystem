@@ -11,7 +11,20 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 
+
+/**
+ * DeletePane Class contains:
+ * 1. The Delete Tab form elements
+ * 2. Delete Tab Design
+ *
+ * @author Omar Yousef
+ * @version 1.0
+ * @since NOV 9th 2020
+ */
 public class DeletePane extends BorderPane {
+    /**
+     * DeletePane Constructor
+     */
     public DeletePane(){
         //Form VBox
         VBox formVbox = new VBox();

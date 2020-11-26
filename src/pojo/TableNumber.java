@@ -2,10 +2,14 @@ package pojo;
 
 /**
  * Table Number Class Contains:
- * 1. Table Number table properties(id, Number of the guests)
- * 2. A Constructor to make a new instance
- * 3. Properties Getters to read the property value and Setters to change the property value
- * 4. We don't need a toString() function because both properties are int data type
+ * 1. Table Number table properties(id, Number of the guests).
+ * 2. A Constructor to make a new instance.
+ * 3. Properties Getters to read the property value and Setters to change the property value.
+ * 4. We don't need a toString() function because both properties are int data type.
+ *
+ * @author Omar Yousef
+ * @version 1.0
+ * @since 20th NOV 2020
  */
 public class TableNumber {
     /**

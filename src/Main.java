@@ -17,11 +17,31 @@ import panes.AddPane;
 import panes.DeletePane;
 import panes.UpdatePane;
 
+/**
+ * The Main Class:
+ * 1. It includes The the Applications Intro page designing
+ * 2. It includes the Application's Primary Stage
+ * 3. It includes the Application's Scene
+ *
+ * @author Omar Yousef
+ * @version 1.0
+ * @since 9th NOV
+ */
 public class Main extends Application {
 
+    /**
+     * Main() Method that launches the Application
+     * @param args
+     */
     public static void main(String[] args) {
         Application.launch();
     }
+
+    /**
+     *
+     * @param stage
+     * @throws Exception
+     */
     @Override
     public void start(Stage stage) throws Exception {
         //Create a text that contains the developers names
