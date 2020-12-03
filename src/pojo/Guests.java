@@ -62,10 +62,11 @@ public class Guests {
     }
 
     /**
-     * outputs format to string for number of guests
-     * @return numOfGuests String
+     * Retrieves the string equivalent to table Number
+     * @return tableNum string
      */
-    public String toString(){
+    @Override
+    public String toString() {
         return "" + this.numOfGuests;
     }
 }
