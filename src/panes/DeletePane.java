@@ -21,7 +21,7 @@ import tables.ReservationsTable;
  */
 public class DeletePane extends BorderPane {
     //Making the Reservations TableView
-    public TableView tableView;
+    public static TableView tableView;
 
     /**
      * DeletePane Constructor:
