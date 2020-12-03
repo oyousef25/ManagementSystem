@@ -86,7 +86,7 @@ public class Main extends Application {
         root.setCenter(tabPane);
         root.setTop(headerBox);
 
-        //
+        //database connection
         Database db = Database.getInstance();
 
         //Scene and stage setup
