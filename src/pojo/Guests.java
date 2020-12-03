@@ -60,4 +60,12 @@ public class Guests {
     public void setNumOfGuests(int numOfGuests) {
         this.numOfGuests = numOfGuests;
     }
+
+    /**
+     * outputs format to string for number of guests
+     * @return numOfGuests String
+     */
+    public String toString(){
+        return "" + this.numOfGuests;
+    }
 }
