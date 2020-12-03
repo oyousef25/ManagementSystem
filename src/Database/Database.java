@@ -29,6 +29,7 @@ public class Database {
         //setup connection
         if(connection == null){
             try{
+                System.out.println("test");
                 Class.forName("com.mysql.cj.jdbc.Driver"); //using the new driver format
                 connection = DriverManager.getConnection("jdbc:mysql://localhost/"
                         + Login.DB_NAME + "?serverTimezone=UTC", Login.DB_USER, Login.DB_PASSWORD);
@@ -46,6 +47,7 @@ public class Database {
             }
         }
     }
+
 
     /**
      * public static method getInstance() creates an instance of Database
@@ -85,5 +87,4 @@ public class Database {
     public Connection getConnection() {
         return connection;
     }
-
 }

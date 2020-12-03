@@ -33,13 +33,16 @@ public class TableNumTable implements TableNumDAO {
     @Override
     public ArrayList<TableNumber> getAllTableNumbers() {
         String query = "SELECT * FROM " + DBConst.TABLE_NUMBER_TABLE;
+        tableNumbers = new ArrayList<TableNumber>();
         try{
             Statement getTableNumbers = db.getConnection().createStatement();
             ResultSet data = getTableNumbers.executeQuery(query);
 
             while(data.next()){
-                tableNumbers.add(new TableNumber(data.getInt(DBConst.TABLE_NUMBER_COLUMN_ID), //id
-                        data.getInt(DBConst.TABLE_NUMBER_COLUMN_NUMBER))); //table number
+                tableNumbers.add(
+                        new TableNumber(
+                                data.getInt(DBConst.TABLE_NUMBER_COLUMN_ID), //id
+                                data.getInt(DBConst.TABLE_NUMBER_COLUMN_NUMBER))); //table number
             }
         }catch (SQLException e){
             e.printStackTrace();
