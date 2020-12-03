@@ -60,4 +60,13 @@ public class Guests {
     public void setNumOfGuests(int numOfGuests) {
         this.numOfGuests = numOfGuests;
     }
+
+    /**
+     * Retrieves the string equivalent to table Number
+     * @return tableNum string
+     */
+    @Override
+    public String toString() {
+        return "" + numOfGuests;
+    }
 }

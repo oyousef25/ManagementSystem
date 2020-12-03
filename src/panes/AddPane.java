@@ -17,6 +17,8 @@ import tables.GuestsTable;
 import tables.ReservationsTable;
 import tables.TableNumTable;
 
+import static panes.DeletePane.refreshTable;
+
 /**
  * AddPane Class contains:
  * 1. The AddTab form elements
@@ -136,6 +138,9 @@ public class AddPane extends BorderPane {
             //Creating a new Reservation record using the object we created above
             reservationsTable.createReservation(reservation);
 
+            //Refresh table
+            refreshTable();
+
             //TODO: Add the statistics tab code below
         });
 
@@ -150,16 +155,5 @@ public class AddPane extends BorderPane {
 
         //Adding the form to the BorderPane
         this.setCenter(formVbox);
-    }
-
-    public void refreshTable() {
-        //Creating a new instance of the Reservations Table
-        ReservationsTable table = new ReservationsTable();
-
-        //Clearing all tableView items
-        DeletePane.tableView.getItems().clear();
-
-        //Re adding the items
-        DeletePane.tableView.getItems().addAll(table.getPrettyItems());
     }
 }
