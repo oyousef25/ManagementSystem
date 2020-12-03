@@ -67,6 +67,6 @@ public class Guests {
      */
     @Override
     public String toString() {
-        return "" + numOfGuests;
+        return "" + this.numOfGuests;
     }
 }
