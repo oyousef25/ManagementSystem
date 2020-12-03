@@ -137,7 +137,7 @@ public class DeletePane extends BorderPane {
         this.setBottom(deleteButton);
     }
 
-    public void refreshTable() {
+    public static void refreshTable() {
         //Creating a new instance of the Reservations Table
         ReservationsTable table = new ReservationsTable();
 

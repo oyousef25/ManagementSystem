@@ -67,6 +67,6 @@ public class TableNumber {
      */
     @Override
     public String toString() {
-        return "" + tableNum;
+        return "" + this.tableNum;
     }
 }
