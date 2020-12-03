@@ -48,9 +48,11 @@ public class StatisticsPane extends BorderPane {
         title.setStrokeWidth(1);
         title.setFont(Font.font("Comic Sans MS", 15));
         title.setLineSpacing(10);
+        //bar graph
+        generateChart();
 
         //adding these elements to the contents VBox
-        content.getChildren().add(title);
+        content.getChildren().addAll(title, barGraph);
 
         //setting the placement of the content VBox in this pane
         this.setTop(content);
@@ -80,5 +82,6 @@ public class StatisticsPane extends BorderPane {
             series.getData().add(new XYChart.Data<String, Number>("Table " + table.getTableNum(), tablesTable.getTableCount(table.getId())));
         }
 
+        barGraph.getData().addAll(series);
     }
 }
