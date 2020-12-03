@@ -5,6 +5,7 @@ import Database.Database;
 import daos.TableNumDAO;
 import pojo.TableNumber;
 
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -73,5 +74,24 @@ public class TableNumTable implements TableNumDAO {
             e.printStackTrace();
         }
         return null;
+    }
+
+    public int getTableCount(int tableID){
+        int count = -1;
+
+        try {
+            PreparedStatement getCount = db.getConnection()
+                    .prepareStatement("SELECT * FROM " + DBConst.TABLE_NUMBER_TABLE + " WHERE "
+                                    + DBConst.TABLE_NUMBER_COLUMN_ID + " = '" + tableID + "'", ResultSet.TYPE_SCROLL_SENSITIVE,
+                            ResultSet.CONCUR_UPDATABLE);
+            ResultSet data = getCount.executeQuery();
+            data.last();
+            count = data.getRow();
+        }
+        catch(SQLException e) {
+            e.printStackTrace();
+        }
+        return count;
+
     }
 }

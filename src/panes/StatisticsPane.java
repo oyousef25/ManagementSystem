@@ -77,7 +77,7 @@ public class StatisticsPane extends BorderPane {
         XYChart.Series series = new XYChart.Series();
 
         for(TableNumber table: tables){
-            series.getData().add(new XYChart.Data<String, Number>("Table " + table.getTableNum(), tablesTable.getItemCount(table.getId())));
+            series.getData().add(new XYChart.Data<String, Number>("Table " + table.getTableNum(), tablesTable.getTableCount(table.getId())));
         }
 
     }
