@@ -47,6 +47,7 @@ public class Database {
         }
     }
 
+
     /**
      * public static method getInstance() creates an instance of Database
      * @return Database instance
@@ -82,8 +83,13 @@ public class Database {
         }
     }
 
+    /**
+     * retrieves the connection
+     * @return connection
+     */
     public Connection getConnection() {
         return connection;
     }
-
 }
+
+

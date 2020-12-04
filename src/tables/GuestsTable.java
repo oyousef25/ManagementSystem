@@ -34,6 +34,7 @@ public class GuestsTable implements GuestsDAO {
     @Override
     public ArrayList<Guests> getAllGuests() {
         String query = "SELECT * FROM " + DBConst.TABLE_GUESTS;
+        guests = new ArrayList<Guests>();
         try{
             Statement getGuests = db.getConnection().createStatement();
             ResultSet data = getGuests.executeQuery(query);

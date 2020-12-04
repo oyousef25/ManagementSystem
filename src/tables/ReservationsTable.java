@@ -33,6 +33,7 @@ public class ReservationsTable implements ReservationsDAO {
     @Override
     public ArrayList<Reservations> getAllReservations() {
         String query = "SELECT * FROM " + DBConst.TABLE_RESERVATIONS;
+        reservations = new ArrayList<Reservations>();
         try{
             Statement getReservations = db.getConnection().createStatement();
             ResultSet data = getReservations.executeQuery(query);
