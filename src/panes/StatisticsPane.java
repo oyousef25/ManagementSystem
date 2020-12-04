@@ -80,6 +80,7 @@ public class StatisticsPane extends BorderPane {
 
         for(TableNumber table: tables){
             series.getData().add(new XYChart.Data<String, Number>("Table " + table.getTableNum(), tablesTable.getTableCount(table.getId())));
+            System.out.println(tablesTable.getTableCount(table.getId()));
         }
 
         barGraph.getData().addAll(series);

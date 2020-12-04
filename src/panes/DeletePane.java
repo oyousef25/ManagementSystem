@@ -1,5 +1,6 @@
 package panes;
 
+import Test.Main;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.scene.control.Button;
@@ -130,7 +131,8 @@ public class DeletePane extends BorderPane {
             //Refreshing table
             refreshTable();
 
-            //TODO: Here add the statistics code
+            //generating the bar graph again
+            Main.statsPane.generateChart();
 
         });
         //Setting the button at the bottom of the tab

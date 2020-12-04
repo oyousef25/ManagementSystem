@@ -1,6 +1,8 @@
 package panes;
 
 import Tabs.DeleteReservationTab;
+import Tabs.StatsTab;
+import Test.Main;
 import javafx.collections.FXCollections;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -141,7 +143,8 @@ public class AddPane extends BorderPane {
             //Refresh table
             refreshTable();
 
-            //TODO: Add the statistics tab code below
+            //generating the bar graph again
+            Main.statsPane.generateChart();
         });
 
         //Add Button to vbox

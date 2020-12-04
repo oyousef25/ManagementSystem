@@ -81,8 +81,8 @@ public class TableNumTable implements TableNumDAO {
 
         try {
             PreparedStatement getCount = db.getConnection()
-                    .prepareStatement("SELECT * FROM " + DBConst.TABLE_NUMBER_TABLE + " WHERE "
-                                    + DBConst.TABLE_NUMBER_COLUMN_ID + " = '" + tableID + "'", ResultSet.TYPE_SCROLL_SENSITIVE,
+                    .prepareStatement("SELECT * FROM " + DBConst.TABLE_RESERVATIONS + " WHERE "
+                                    + DBConst.RESERVATIONS_COLUMN_TABLE + " = '" + tableID + "'", ResultSet.TYPE_SCROLL_SENSITIVE,
                             ResultSet.CONCUR_UPDATABLE);
             ResultSet data = getCount.executeQuery();
             data.last();
