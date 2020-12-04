@@ -1,6 +1,5 @@
 package panes;
 
-import com.mysql.cj.xdevapi.Table;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.chart.BarChart;
@@ -37,12 +36,12 @@ public class StatisticsPane extends BorderPane {
         VBox content = new VBox();
         //content specs
         content.setSpacing(10);
-        content.setAlignment(Pos.CENTER_LEFT);
+        content.setAlignment(Pos.CENTER);
         content.setPadding(new Insets(20, 20, 20, 20));
 
         //elements to be contained within the contents vBox
         //title
-        Text title = new Text("Statistics Pane");
+        Text title = new Text("Hummus Restaurant Statistics");
         title.setFill(Color.BLACK);
         title.setStroke(Color.BLACK);
         title.setStrokeWidth(1);
@@ -74,15 +73,22 @@ public class StatisticsPane extends BorderPane {
 
         //populating the bar graph with information
         barGraph = new BarChart<String, Number>(tableNumbers, reservations);
-        barGraph.setTitle("Most Used Tables");
+        barGraph.setTitle("Most Reserved Tables");
 
-        XYChart.Series series = new XYChart.Series();
+        XYChart.Series series = new XYChart.Series(); //represents a legend icon (in our case our restaurant)
+        series.setName("Hummus Restaurant");
 
-        for(TableNumber table: tables){
+        for(TableNumber table: tables){ //retrieving the desired information from the reservations table
             series.getData().add(new XYChart.Data<String, Number>("Table " + table.getTableNum(), tablesTable.getTableCount(table.getId())));
             System.out.println(tablesTable.getTableCount(table.getId()));
+            System.out.println("Table " + table.getTableNum());
         }
 
         barGraph.getData().addAll(series);
+
+        //adding specs to bar graph
+        barGraph.setMaxHeight(230);
+        barGraph.setMaxWidth(600);
+        barGraph.setCategoryGap(20);
     }
 }
