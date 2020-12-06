@@ -19,6 +19,7 @@ import panes.AddPane;
 import panes.DeletePane;
 import panes.StatisticsPane;
 import panes.UpdatePane;
+import scenes.LoginScene;
 
 /**
  * The Test.Main Class:
@@ -31,6 +32,8 @@ import panes.UpdatePane;
  * @since 9th NOV
  */
 public class Main extends Application {
+    public static Stage mainStage;
+
     public static StatisticsPane statsPane = new StatisticsPane();
 
     /**
@@ -48,6 +51,10 @@ public class Main extends Application {
      */
     @Override
     public void start(Stage stage) throws Exception {
+        //Setting the mainStage variable as the main stage
+        mainStage = stage;
+
+
         //Create a text that contains the developers names
         Text creditsTitle = new Text("Credits: Developed By Omar Yousef and Farzana Moury");
         creditsTitle.setFill(Color.BLACK);
@@ -96,7 +103,7 @@ public class Main extends Application {
 
         //Scene and stage setup
         Scene scene = new Scene(root, 1024, 768);
-        stage.setScene(scene);
+        stage.setScene(new LoginScene());
         stage.setTitle("Hummus Restaurant Reservations Management System");
         stage.show();
     }
