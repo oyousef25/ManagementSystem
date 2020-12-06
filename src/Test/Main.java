@@ -1,3 +1,5 @@
+package Test;
+
 import Database.Database;
 import Tabs.AddReservationTab;
 import Tabs.DeleteReservationTab;
@@ -15,10 +17,11 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import panes.AddPane;
 import panes.DeletePane;
+import panes.StatisticsPane;
 import panes.UpdatePane;
 
 /**
- * The Main Class:
+ * The Test.Main Class:
  * 1. It includes The the Applications Intro page designing
  * 2. It includes the Application's Primary Stage
  * 3. It includes the Application's Scene
@@ -28,9 +31,10 @@ import panes.UpdatePane;
  * @since 9th NOV
  */
 public class Main extends Application {
+    public static StatisticsPane statsPane = new StatisticsPane();
 
     /**
-     * Main() Method that launches the Application
+     * Test.Main() Method that launches the Application
      * @param args
      */
     public static void main(String[] args) {
@@ -75,6 +79,7 @@ public class Main extends Application {
         updateReservationTab.setContent(new UpdatePane());
 
         StatsTab statsTab = StatsTab.getInstance();
+        statsTab.setContent(statsPane);
 
         //Add Tabs to the tabPane
         tabPane.getTabs().addAll(addReservationTab,updateReservationTab, deleteReservationTab, statsTab);
@@ -86,7 +91,7 @@ public class Main extends Application {
         root.setCenter(tabPane);
         root.setTop(headerBox);
 
-        //
+        //database connection
         Database db = Database.getInstance();
 
         //Scene and stage setup

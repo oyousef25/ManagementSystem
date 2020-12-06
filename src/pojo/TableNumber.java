@@ -60,4 +60,13 @@ public class TableNumber {
     public void setTableNum(int tableNum) {
         this.tableNum = tableNum;
     }
+
+    /**
+     * Retrieves the string equivalent to table Number
+     * @return tableNum string
+     */
+    @Override
+    public String toString() {
+        return "" + this.tableNum;
+    }
 }
