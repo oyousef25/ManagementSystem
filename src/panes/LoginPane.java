@@ -1,9 +1,23 @@
 package panes;
 
+import Test.Main;
+import javafx.geometry.Pos;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
+import javafx.scene.text.Text;
+import javafx.scene.text.TextAlignment;
+
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
+
+import static Test.Main.mainStage;
 
 /**
  * Login Pane:
@@ -14,6 +28,11 @@ import javafx.scene.layout.VBox;
  * @since 5th December
  */
 public class LoginPane extends BorderPane {
+
+    public static final String DB_NAME = "";
+    public static final String DB_USER = "";
+    public static final String DB_PASSWORD = "";
+
     /**
      * LoginPane() constructor:
      * It will help us make a new instance of the Login Pane in the Login scene.
@@ -24,6 +43,14 @@ public class LoginPane extends BorderPane {
 
         //Make a VBox to design form
         VBox formBox = new VBox();
+
+        Text title = new Text("Login Please!");
+        title.setFill(Color.BLACK);
+        title.setStroke(Color.BLACK);
+        title.setStrokeWidth(1);
+        title.setFont(Font.font("Comic Sans MS", 30));
+        //Add title to vbox
+        formBox.getChildren().add(title);
 
         Label usernameLabel = new Label("Username:");
         TextField usernameText = new TextField();
@@ -39,12 +66,37 @@ public class LoginPane extends BorderPane {
         formBox.getChildren().addAll(passwordLabel, passwordText);
 
 
-        Label locationLabel = new Label("Server Location:");
-        TextField locationText = new TextField();
-        locationText.setMaxWidth(150);
+        Label databaseLabel = new Label("Database:");
+        TextField databaseText = new TextField();
+        databaseText.setMaxWidth(150);
         //Add elements to vbox
-        formBox.getChildren().addAll(locationLabel, locationText);
+        formBox.getChildren().addAll(databaseLabel, databaseText);
 
+        //Login Button
+        Button login = new Button("Login!");
+
+        //Programming the login button
+        login.setOnAction(e->{
+            try {
+                PrintWriter out =
+                        new PrintWriter(new File("src/Database/login"));
+
+                out.print(usernameText.getText() + " ");
+                out.print(passwordText.getText() + " ");
+                out.print(databaseText.getText() + " ");
+
+                out.close();
+
+            } catch (FileNotFoundException fileNotFoundException) {
+                fileNotFoundException.printStackTrace();
+            }
+
+        });
+
+        formBox.getChildren().addAll(login);
+
+        formBox.setSpacing(10);
+        formBox.setAlignment(Pos.CENTER);
         this.setCenter(formBox);
     }
 }

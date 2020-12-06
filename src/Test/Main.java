@@ -33,6 +33,7 @@ import scenes.LoginScene;
  */
 public class Main extends Application {
     public static Stage mainStage;
+    public static Scene scene;
 
     public static StatisticsPane statsPane = new StatisticsPane();
 
@@ -102,7 +103,7 @@ public class Main extends Application {
         Database db = Database.getInstance();
 
         //Scene and stage setup
-        Scene scene = new Scene(root, 1024, 768);
+        scene = new Scene(root, 1024, 768);
         stage.setScene(new LoginScene());
         stage.setTitle("Hummus Restaurant Reservations Management System");
         stage.show();
