@@ -1,6 +1,6 @@
 package panes;
 
-import Test.Main;
+import Test.HummusApp;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.scene.control.Button;
@@ -132,7 +132,7 @@ public class DeletePane extends BorderPane {
             refreshTable();
 
             //generating the bar graph again
-            Main.statsPane.generateChart();
+            MainPane.statsPane.generateChart();
 
         });
         //Setting the button at the bottom of the tab
