@@ -1,8 +1,6 @@
 package panes;
 
-import Tabs.DeleteReservationTab;
-import Tabs.StatsTab;
-import Test.Main;
+import Test.HummusApp;
 import javafx.collections.FXCollections;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -144,7 +142,7 @@ public class AddPane extends BorderPane {
             refreshTable();
 
             //generating the bar graph again
-            Main.statsPane.generateChart();
+            MainPane.statsPane.generateChart();
         });
 
         //Add Button to vbox

@@ -1,6 +1,8 @@
 package panes;
 
-import Test.Main;
+import Database.DBConst;
+import Database.Login;
+import Test.HummusApp;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -10,14 +12,11 @@ import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
-import javafx.scene.text.TextAlignment;
+import scenes.MainScene;
 
-import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
-
-import static Test.Main.mainStage;
 
 /**
  * Login Pane:
@@ -28,10 +27,6 @@ import static Test.Main.mainStage;
  * @since 5th December
  */
 public class LoginPane extends BorderPane {
-
-    public static final String DB_NAME = "";
-    public static final String DB_USER = "";
-    public static final String DB_PASSWORD = "";
 
     /**
      * LoginPane() constructor:
@@ -86,11 +81,14 @@ public class LoginPane extends BorderPane {
                 out.print(databaseText.getText() + " ");
 
                 out.close();
+                Login.DB_NAME = databaseText.getText();
+                Login.DB_PASSWORD = passwordText.getText();
+                Login.DB_USER = usernameText.getText();
+                HummusApp.mainStage.setScene(new MainScene());
 
             } catch (FileNotFoundException fileNotFoundException) {
                 fileNotFoundException.printStackTrace();
             }
-
         });
 
         formBox.getChildren().addAll(login);
