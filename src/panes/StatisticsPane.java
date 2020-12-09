@@ -26,13 +26,14 @@ import java.util.ArrayList;
  */
 public class StatisticsPane extends BorderPane {
 
-    private BarChart<String, Number> barGraph; //graph will be used to indicate how popular each table is
-
+    public static BarChart<String, Number> barGraph; //graph will be used to indicate how popular each table is
+    private static BorderPane graphHolder;
     /**
      * Constructor displaying Statistics content
      */
     public StatisticsPane() {
         //main VBox to contain main content
+        graphHolder = new BorderPane();
         VBox content = new VBox();
         //content specs
         content.setSpacing(10);
@@ -48,16 +49,18 @@ public class StatisticsPane extends BorderPane {
         title.setFont(Font.font("Comic Sans MS", 15));
         title.setLineSpacing(10);
         //bar graph
+        graphHolder.setCenter(barGraph);
         generateChart();
 
         //adding these elements to the contents VBox
-        content.getChildren().addAll(title, barGraph);
+        content.getChildren().addAll(title, graphHolder);
 
         //setting the placement of the content VBox in this pane
         this.setTop(content);
     }
 
-    public void generateChart(){
+    public static void generateChart(){
+
         //getting access to the database
         TableNumTable tablesTable = new TableNumTable();
 
@@ -78,17 +81,21 @@ public class StatisticsPane extends BorderPane {
         XYChart.Series series = new XYChart.Series(); //represents a legend icon (in our case our restaurant)
         series.setName("Hummus Restaurant");
 
+
         for(TableNumber table: tables){ //retrieving the desired information from the reservations table
             series.getData().add(new XYChart.Data<String, Number>("Table " + table.getTableNum(), tablesTable.getTableCount(table.getId())));
-            System.out.println(tablesTable.getTableCount(table.getId()));
-            System.out.println("Table " + table.getTableNum());
+//            System.out.println(tablesTable.getTableCount(table.getId()));
+//            System.out.println("Table " + table.getTableNum());
         }
 
+        barGraph.getData().clear();
+        System.out.println("Clear graph data");
         barGraph.getData().addAll(series);
 
         //adding specs to bar graph
         barGraph.setMaxHeight(230);
         barGraph.setMaxWidth(600);
         barGraph.setCategoryGap(20);
+        graphHolder.setCenter(barGraph);
     }
 }

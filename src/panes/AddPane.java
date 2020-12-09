@@ -142,7 +142,7 @@ public class AddPane extends BorderPane {
             refreshTable();
 
             //generating the bar graph again
-            MainPane.statsPane.generateChart();
+            StatisticsPane.generateChart();
         });
 
         //Add Button to vbox
