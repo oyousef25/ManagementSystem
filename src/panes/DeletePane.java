@@ -132,7 +132,8 @@ public class DeletePane extends BorderPane {
             refreshTable();
 
             //generating the bar graph again
-            MainPane.statsPane.generateChart();
+
+            StatisticsPane.generateChart();
 
         });
         //Setting the button at the bottom of the tab
