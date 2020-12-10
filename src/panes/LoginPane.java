@@ -1,6 +1,5 @@
 package panes;
 
-import Database.DBConst;
 import Database.Login;
 import Test.HummusApp;
 import javafx.geometry.Pos;
@@ -50,21 +49,21 @@ public class LoginPane extends BorderPane {
         Label usernameLabel = new Label("Username:");
         TextField usernameText = new TextField();
         usernameText.setMaxWidth(150);
-        //Add elements to vbox
+        //Add username label and textfield to vbox
         formBox.getChildren().addAll(usernameLabel, usernameText);
 
 
         Label passwordLabel = new Label("Password:");
         TextField passwordText = new TextField();
         passwordText.setMaxWidth(150);
-        //Add elements to vbox
+        //Add password label and textfield to vbox
         formBox.getChildren().addAll(passwordLabel, passwordText);
 
 
         Label databaseLabel = new Label("Database:");
         TextField databaseText = new TextField();
         databaseText.setMaxWidth(150);
-        //Add elements to vbox
+        //Add database label and textfield to vbox
         formBox.getChildren().addAll(databaseLabel, databaseText);
 
         //Login Button
@@ -73,6 +72,7 @@ public class LoginPane extends BorderPane {
         //Programming the login button
         login.setOnAction(e->{
             try {
+                //writing to the login txt file to store credentials
                 PrintWriter out =
                         new PrintWriter(new File("src/Database/login"));
 
@@ -80,17 +80,20 @@ public class LoginPane extends BorderPane {
                 out.print(passwordText.getText() + " ");
                 out.print(databaseText.getText() + " ");
 
-                out.close();
+                out.close(); //closing the stream
+
+                //storing the information in our globally declared credentials
                 Login.DB_NAME = databaseText.getText();
                 Login.DB_PASSWORD = passwordText.getText();
                 Login.DB_USER = usernameText.getText();
-                HummusApp.mainStage.setScene(new MainScene());
+                HummusApp.mainStage.setScene(new MainScene()); //switching to the main program
 
             } catch (FileNotFoundException fileNotFoundException) {
                 fileNotFoundException.printStackTrace();
             }
         });
 
+        //setting everything to the form
         formBox.getChildren().addAll(login);
 
         formBox.setSpacing(10);

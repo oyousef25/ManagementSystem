@@ -9,7 +9,7 @@ import panes.LoginPane;
  *
  * @author Omar Yousef & Farzana Moury
  * @version 1.0
- * @since 5th December
+ * @since 5th December 2020
  */
 public class LoginScene extends Scene {
     /**

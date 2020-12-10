@@ -31,7 +31,7 @@ public class TableNumber {
 
     /**
      * ID Getter
-     * @return
+     * @return id
      */
     public int getId() {
         return id;
@@ -47,7 +47,7 @@ public class TableNumber {
 
     /**
      * Table Number Getter
-     * @return
+     * @return tableNum
      */
     public int getTableNum() {
         return tableNum;

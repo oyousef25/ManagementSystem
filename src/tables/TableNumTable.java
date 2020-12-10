@@ -76,6 +76,11 @@ public class TableNumTable implements TableNumDAO {
         return null;
     }
 
+    /**
+     * The purpose of this method is to get the total amount of tables in the restaurant that are being reserved
+     * @param tableID
+     * @return returns the number of restaurant tables
+     */
     public int getTableCount(int tableID){
         int count = -1;
 

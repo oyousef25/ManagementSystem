@@ -41,7 +41,7 @@ public class DisplayReservation {
 
     /**
      * ID Getter
-     * @return
+     * @return id
      */
     public int getId() {
         return id;
@@ -57,7 +57,7 @@ public class DisplayReservation {
 
     /**
      * Name Getter
-     * @return
+     * @return name
      */
     public String getName() {
         return name;
@@ -73,7 +73,7 @@ public class DisplayReservation {
 
     /**
      * Date Getter
-     * @return
+     * @return date
      */
     public String getDate() {
         return date;
@@ -89,7 +89,7 @@ public class DisplayReservation {
 
     /**
      * Table Number Getter
-     * @return
+     * @return tableNum
      */
     public String getTableNum() {
         return tableNum;
@@ -105,7 +105,7 @@ public class DisplayReservation {
 
     /**
      * Number Of Guests Getter
-     * @return
+     * @return guests
      */
     public String getGuests() {
         return guests;
@@ -121,7 +121,7 @@ public class DisplayReservation {
 
     /**
      * Phone Number Getter
-     * @return
+     * @return phoneNumber
      */
     public int getPhoneNumber() {
         return phoneNumber;
