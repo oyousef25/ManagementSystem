@@ -21,7 +21,7 @@ Open a new project and download the latest version of Java (this project was mad
 `git clone https://github.com/oyousef25/ManagementSystem.git`
 
 ### Database Configuration
-Before you run the program make sure you are connected to a database.
+Before you run the program make sure you are connected to a database. Make sure you know your username, password, and database location to use later.
 
 **You are now ready to run the program!**
 
