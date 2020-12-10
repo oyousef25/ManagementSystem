@@ -23,12 +23,6 @@ Open a new project and download the latest version of Java (this project was mad
 ### Database Configuration
 Before you run the program make sure you are connected to a database.
 
-Ensure your login credentials are specified in a new class called Login. This class must be placed in the src/Database/ directory.
-
-* **DB_NAME** - the database name
-* **DB_USER** - the username to access database
-* **DB_PASSWORD** - the password to login
-
 **You are now ready to run the program!**
 
 
