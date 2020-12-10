@@ -1,10 +1,8 @@
 package panes;
 
-import Database.Database;
 import Tabs.AddReservationTab;
 import Tabs.DeleteReservationTab;
 import Tabs.StatsTab;
-import Tabs.UpdateReservationTab;
 import javafx.scene.control.TabPane;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
@@ -13,9 +11,19 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 
+/**
+ * MainPane
+ * @author Omar Yousef and Farzana Moury
+ * @version 1.0
+ * @since Dec 7th 2020
+ */
 public class MainPane extends BorderPane {
+    //public static property
     public static StatisticsPane statsPane = new StatisticsPane();
 
+    /**
+     * creates a scene that contains all the tab and program content
+     */
     public MainPane(){
         //Create a text that contains the developers names
         Text creditsTitle = new Text("Credits: Developed By Omar Yousef and Farzana Moury");
@@ -44,20 +52,14 @@ public class MainPane extends BorderPane {
         DeleteReservationTab deleteReservationTab = DeleteReservationTab.getInstance();
         deleteReservationTab.setContent(new DeletePane());
 
-        UpdateReservationTab updateReservationTab = UpdateReservationTab.getInstance();
-        updateReservationTab.setContent(new UpdatePane());
-
         StatsTab statsTab = StatsTab.getInstance();
         statsTab.setContent(statsPane);
 
         //Add Tabs to the tabPane
-        tabPane.getTabs().addAll(addReservationTab,updateReservationTab, deleteReservationTab, statsTab);
+        tabPane.getTabs().addAll(addReservationTab, deleteReservationTab, statsTab);
         //Add tabPane and Header VBox to the borderPane
         this.setCenter(tabPane);
         this.setTop(headerBox);
-
-        //Scene and stage setup
-        //scene = new Scene(root, 1024, 768);
     }
 
 }

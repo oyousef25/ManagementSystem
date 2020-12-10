@@ -84,12 +84,10 @@ public class StatisticsPane extends BorderPane {
 
         for(TableNumber table: tables){ //retrieving the desired information from the reservations table
             series.getData().add(new XYChart.Data<String, Number>("Table " + table.getTableNum(), tablesTable.getTableCount(table.getId())));
-//            System.out.println(tablesTable.getTableCount(table.getId()));
-//            System.out.println("Table " + table.getTableNum());
         }
 
+        //clearing the bar graph data and adding them (this is how it refreshes)
         barGraph.getData().clear();
-        System.out.println("Clear graph data");
         barGraph.getData().addAll(series);
 
         //adding specs to bar graph

@@ -1,24 +1,8 @@
 package Test;
 
-import Database.Database;
-import Tabs.AddReservationTab;
-import Tabs.DeleteReservationTab;
-import Tabs.StatsTab;
-import Tabs.UpdateReservationTab;
 import javafx.application.Application;
 import javafx.scene.Scene;
-import javafx.scene.control.TabPane;
-import javafx.scene.image.ImageView;
-import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.VBox;
-import javafx.scene.paint.Color;
-import javafx.scene.text.Font;
-import javafx.scene.text.Text;
 import javafx.stage.Stage;
-import panes.AddPane;
-import panes.DeletePane;
-import panes.StatisticsPane;
-import panes.UpdatePane;
 import scenes.LoginScene;
 import Database.Login;
 import scenes.MainScene;
@@ -35,7 +19,7 @@ import java.util.Scanner;
  *
  * @author Omar Yousef
  * @version 1.0
- * @since 9th NOV
+ * @since 9th NOV 2020
  */
 public class HummusApp extends Application {
     public static Stage mainStage;
@@ -49,7 +33,8 @@ public class HummusApp extends Application {
     }
 
     /**
-     *
+     * Start method will either take you to the login screen if the login txt file is not created, or else
+     * it will automatically load the main screen
      * @param stage
      * @throws Exception
      */
@@ -59,10 +44,10 @@ public class HummusApp extends Application {
         File file = new File("src/Database/login");
         //if the file exists
         mainStage = stage;
-        if (file.exists() && file.length() > 0) {
+        if (file.exists() && file.length() > 0) { //if the file exists and there are credentials inside
         try {
             Scanner scanner;
-            scanner = new Scanner(new File("src/Database/login"));
+            scanner = new Scanner(new File("src/Database/login")); //we store it in a txt file called login
             Login.DB_USER = scanner.next();
             Login.DB_PASSWORD = scanner.next();
             Login.DB_NAME = scanner.next();
@@ -70,11 +55,11 @@ public class HummusApp extends Application {
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
-            Scene scene = new MainScene();
+            Scene scene = new MainScene(); //then we take them to the main program
             mainStage.setScene(scene);
         }
         else{
-            Scene scene = new LoginScene();
+            Scene scene = new LoginScene(); //otherwise by default we start the main program
             mainStage.setScene(scene);
         }
         stage.setTitle("Hummus Restaurant Reservations Management System");
