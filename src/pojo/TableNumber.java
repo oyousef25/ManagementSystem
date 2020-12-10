@@ -31,7 +31,7 @@ public class TableNumber {
 
     /**
      * ID Getter
-     * @return
+     * @return id
      */
     public int getId() {
         return id;
@@ -47,7 +47,7 @@ public class TableNumber {
 
     /**
      * Table Number Getter
-     * @return
+     * @return tableNum
      */
     public int getTableNum() {
         return tableNum;
@@ -59,5 +59,14 @@ public class TableNumber {
      */
     public void setTableNum(int tableNum) {
         this.tableNum = tableNum;
+    }
+
+    /**
+     * Retrieves the string equivalent to table Number
+     * @return tableNum string
+     */
+    @Override
+    public String toString() {
+        return "" + this.tableNum;
     }
 }

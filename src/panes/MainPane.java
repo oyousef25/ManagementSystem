@@ -1,10 +1,8 @@
-import Database.Database;
+package panes;
+
 import Tabs.AddReservationTab;
 import Tabs.DeleteReservationTab;
 import Tabs.StatsTab;
-import Tabs.UpdateReservationTab;
-import javafx.application.Application;
-import javafx.scene.Scene;
 import javafx.scene.control.TabPane;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
@@ -12,38 +10,21 @@ import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
-import javafx.stage.Stage;
-import panes.AddPane;
-import panes.DeletePane;
-import panes.UpdatePane;
 
 /**
- * The Main Class:
- * 1. It includes The the Applications Intro page designing
- * 2. It includes the Application's Primary Stage
- * 3. It includes the Application's Scene
- *
- * @author Omar Yousef
+ * MainPane
+ * @author Omar Yousef and Farzana Moury
  * @version 1.0
- * @since 9th NOV
+ * @since Dec 7th 2020
  */
-public class Main extends Application {
+public class MainPane extends BorderPane {
+    //public static property
+    public static StatisticsPane statsPane = new StatisticsPane();
 
     /**
-     * Main() Method that launches the Application
-     * @param args
+     * creates a scene that contains all the tab and program content
      */
-    public static void main(String[] args) {
-        Application.launch();
-    }
-
-    /**
-     *
-     * @param stage
-     * @throws Exception
-     */
-    @Override
-    public void start(Stage stage) throws Exception {
+    public MainPane(){
         //Create a text that contains the developers names
         Text creditsTitle = new Text("Credits: Developed By Omar Yousef and Farzana Moury");
         creditsTitle.setFill(Color.BLACK);
@@ -71,28 +52,14 @@ public class Main extends Application {
         DeleteReservationTab deleteReservationTab = DeleteReservationTab.getInstance();
         deleteReservationTab.setContent(new DeletePane());
 
-        UpdateReservationTab updateReservationTab = UpdateReservationTab.getInstance();
-        updateReservationTab.setContent(new UpdatePane());
-
         StatsTab statsTab = StatsTab.getInstance();
+        statsTab.setContent(statsPane);
 
         //Add Tabs to the tabPane
-        tabPane.getTabs().addAll(addReservationTab,updateReservationTab, deleteReservationTab, statsTab);
-
-        //Create a borderPane
-        BorderPane root = new BorderPane();
-
+        tabPane.getTabs().addAll(addReservationTab, deleteReservationTab, statsTab);
         //Add tabPane and Header VBox to the borderPane
-        root.setCenter(tabPane);
-        root.setTop(headerBox);
-
-        //
-        Database db = Database.getInstance();
-
-        //Scene and stage setup
-        Scene scene = new Scene(root, 1024, 768);
-        stage.setScene(scene);
-        stage.setTitle("Hummus Restaurant Reservations Management System");
-        stage.show();
+        this.setCenter(tabPane);
+        this.setTop(headerBox);
     }
+
 }

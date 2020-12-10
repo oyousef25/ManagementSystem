@@ -66,7 +66,7 @@ public class Reservations {
 
     /**
      * ID Getter
-     * @return
+     * @return id
      */
     public int getId() {
         return id;
@@ -82,7 +82,7 @@ public class Reservations {
 
     /**
      * Name Getter
-     * @return
+     * @return name
      */
     public String getName() {
         return name;
@@ -98,7 +98,7 @@ public class Reservations {
 
     /**
      * Date Getter
-     * @return
+     * @return date
      */
     public int getDate() {
         return date;
@@ -114,7 +114,7 @@ public class Reservations {
 
     /**
      * Table Number Getter
-     * @return
+     * @return tableNum
      */
     public int getTableNum() {
         return tableNum;
@@ -130,7 +130,7 @@ public class Reservations {
 
     /**
      * Guests Getter
-     * @return
+     * @return guests
      */
     public int getGuests() {
         return guests;
@@ -146,7 +146,7 @@ public class Reservations {
 
     /**
      * Phone Number Getter
-     * @return
+     * @return phoneNumber
      */
     public int getPhoneNumber() {
         return phoneNumber;
@@ -162,7 +162,7 @@ public class Reservations {
 
     /**
      * toString() Method to return the guest's name:
-     * @return
+     * @return name
      */
     @Override
     public String toString() {

@@ -1,15 +1,22 @@
 package panes;
 
+import javafx.collections.FXCollections;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
+import pojo.Guests;
+import pojo.Reservations;
+import pojo.TableNumber;
+import tables.GuestsTable;
+import tables.ReservationsTable;
+import tables.TableNumTable;
+
+import static panes.DeletePane.refreshTable;
 
 /**
  * AddPane Class contains:
@@ -21,11 +28,22 @@ import javafx.scene.text.Text;
  * @since NOV 9th 2020
  */
 public class AddPane extends BorderPane {
+
     /**
      * AddPane() Constructor:
      * It holds all the form elements
      */
     public AddPane(){
+        //Making a new Reservations Table instance
+        ReservationsTable reservationsTable = new ReservationsTable();
+
+        //Making a new Number Of Guests Table instance
+        GuestsTable guestsTable = new GuestsTable();
+
+        //Making a new Table Number Table instance
+        TableNumTable tableNumTable = new TableNumTable();
+
+
         //Form VBox
         VBox formVbox = new VBox();
 
@@ -47,38 +65,85 @@ public class AddPane extends BorderPane {
         //Add title to vbox
         formVbox.getChildren().add(title);
 
+        /*
+            NAME
+         */
         Label nameLabel = new Label("Name Of Person");
         TextField nameText = new TextField();
         nameText.setMaxWidth(150);
         //Add elements to vbox
         formVbox.getChildren().addAll(nameLabel, nameText);
 
+        /*
+            Date
+         */
         Label dateLabel = new Label("Date:");
         TextField dateText = new TextField();
         dateText.setMaxWidth(150);
         //Add elements to vbox
         formVbox.getChildren().addAll(dateLabel, dateText);
 
+        /*
+            Table Number
+         */
         Label tableLabel = new Label("Table #:");
-        TextField tableText = new TextField();
-        tableText.setMaxWidth(150);
-        //Add elements to vbox
-        formVbox.getChildren().addAll(tableLabel, tableText);
 
+        //Making a new ComboBox
+        ComboBox<TableNumber> tableNumberComboBox = new ComboBox<>();
+        //Setting the Combo Box's values to the data inside of our table # table(A list of records)
+        tableNumberComboBox.setItems(FXCollections.observableArrayList(tableNumTable.getAllTableNumbers()));
+
+        //Add elements to vbox
+        formVbox.getChildren().addAll(tableLabel, tableNumberComboBox);
+
+        /*
+            Number Of Guests:
+         */
         Label numOfPeopleLabel = new Label("Number Of People");
-        TextField numOfPeopleText = new TextField();
-        numOfPeopleText.setMaxWidth(150);
-        //Add elements to vbox
-        formVbox.getChildren().addAll(numOfPeopleLabel, numOfPeopleText);
+        //Making a new ComboBox
+        ComboBox<Guests> guestsTableComboBox = new ComboBox<>();
+        //Setting the Combo Box's values to the data inside of our table # table(A list of records)
+        guestsTableComboBox.setItems(FXCollections.observableArrayList(guestsTable.getAllGuests()));
 
+        //Add elements to vbox
+        formVbox.getChildren().addAll(numOfPeopleLabel, guestsTableComboBox);
+
+        /*
+            Phone Number
+         */
         Label phoneNumLabel = new Label("Phone Number:");
         TextField phoneNumText = new TextField();
         phoneNumText.setMaxWidth(150);
         //Add elements to vbox
         formVbox.getChildren().addAll(phoneNumLabel, phoneNumText);
 
+        /*
+            Add Button:
+            Inserts a new record into the database by retrieving the data entered in the form
+         */
         Button addReservation = new Button("Add");
         addReservation.setAlignment(Pos.CENTER_RIGHT);
+
+        //Inserting a new record when clicking on the ad reservation button
+        addReservation.setOnAction(e->{
+            //Making a new Reservation object
+            Reservations reservation = new Reservations(
+                    nameText.getText(),
+                    Integer.parseInt(dateText.getText()),
+                    tableNumberComboBox.getSelectionModel().getSelectedItem().getId(),
+                    guestsTableComboBox.getSelectionModel().getSelectedItem().getId(),
+                    Integer.parseInt(phoneNumText.getText()));
+
+            //Creating a new Reservation record using the object we created above
+            reservationsTable.createReservation(reservation);
+
+            //Refresh table
+            refreshTable();
+
+            //generating the bar graph again
+            StatisticsPane.generateChart();
+        });
+
         //Add Button to vbox
         formVbox.getChildren().add(addReservation);
 

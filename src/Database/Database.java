@@ -27,13 +27,13 @@ public class Database {
      */
     private Database() {
         //setup connection
-        if(connection == null){
-            try{
+        if (connection == null) {
+            try {
                 Class.forName("com.mysql.cj.jdbc.Driver"); //using the new driver format
                 connection = DriverManager.getConnection("jdbc:mysql://localhost/"
                         + Login.DB_NAME + "?serverTimezone=UTC", Login.DB_USER, Login.DB_PASSWORD);
                 System.out.println("Connection successful");
-            }catch(Exception e){
+            } catch (Exception e) {
                 e.printStackTrace();
             }
             try {
@@ -41,11 +41,12 @@ public class Database {
                 createTable(DBConst.TABLE_NUMBER_TABLE, DBConst.CREATE_TABLE_NUMBER, connection);
                 createTable(DBConst.TABLE_GUESTS, DBConst.CREATE_TABLE_GUESTS, connection);
                 createTable(DBConst.TABLE_RESERVATIONS, DBConst.CREATE_TABLE_RESERVATIONS, connection);
-            }catch(Exception e){
+            } catch (Exception e) {
                 e.printStackTrace();
             }
         }
     }
+
 
     /**
      * public static method getInstance() creates an instance of Database
@@ -82,8 +83,13 @@ public class Database {
         }
     }
 
+    /**
+     * retrieves the connection
+     * @return connection
+     */
     public Connection getConnection() {
         return connection;
     }
-
 }
+
+

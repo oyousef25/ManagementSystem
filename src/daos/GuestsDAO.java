@@ -16,14 +16,14 @@ import java.util.ArrayList;
 public interface GuestsDAO {
     /**
      * A function that returns all guests quantities in each reservation
-     * @return
+     * @return guests arraylist
      */
     public ArrayList<Guests> getAllGuests();
 
     /**
      * A function that returns a single guests quantity in a specific reservation
      * @param guestId
-     * @return
+     * @return guest
      */
     public Guests getGuest(int guestId);
 }

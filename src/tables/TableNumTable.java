@@ -5,6 +5,7 @@ import Database.Database;
 import daos.TableNumDAO;
 import pojo.TableNumber;
 
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -33,13 +34,16 @@ public class TableNumTable implements TableNumDAO {
     @Override
     public ArrayList<TableNumber> getAllTableNumbers() {
         String query = "SELECT * FROM " + DBConst.TABLE_NUMBER_TABLE;
+        tableNumbers = new ArrayList<TableNumber>();
         try{
             Statement getTableNumbers = db.getConnection().createStatement();
             ResultSet data = getTableNumbers.executeQuery(query);
 
             while(data.next()){
-                tableNumbers.add(new TableNumber(data.getInt(DBConst.TABLE_NUMBER_COLUMN_ID), //id
-                        data.getInt(DBConst.TABLE_NUMBER_COLUMN_NUMBER))); //table number
+                tableNumbers.add(
+                        new TableNumber(
+                                data.getInt(DBConst.TABLE_NUMBER_COLUMN_ID), //id
+                                data.getInt(DBConst.TABLE_NUMBER_COLUMN_NUMBER))); //table number
             }
         }catch (SQLException e){
             e.printStackTrace();
@@ -70,5 +74,29 @@ public class TableNumTable implements TableNumDAO {
             e.printStackTrace();
         }
         return null;
+    }
+
+    /**
+     * The purpose of this method is to get the total amount of tables in the restaurant that are being reserved
+     * @param tableID
+     * @return returns the number of restaurant tables
+     */
+    public int getTableCount(int tableID){
+        int count = -1;
+
+        try {
+            PreparedStatement getCount = db.getConnection()
+                    .prepareStatement("SELECT * FROM " + DBConst.TABLE_RESERVATIONS + " WHERE "
+                                    + DBConst.RESERVATIONS_COLUMN_TABLE + " = '" + tableID + "'", ResultSet.TYPE_SCROLL_SENSITIVE,
+                            ResultSet.CONCUR_UPDATABLE);
+            ResultSet data = getCount.executeQuery();
+            data.last();
+            count = data.getRow();
+        }
+        catch(SQLException e) {
+            e.printStackTrace();
+        }
+        return count;
+
     }
 }
