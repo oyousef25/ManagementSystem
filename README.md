@@ -95,8 +95,3 @@ Before you run the program make sure you are connected to a database. Make sure 
 This repository is licensed under the [MIT](https://choosealicense.com/licenses/mit/) license
 
 
-## Acknowledgements
-
-* Câi Filiault (Professor)
-
-
